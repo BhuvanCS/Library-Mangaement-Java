@@ -1,4 +1,4 @@
-package liop;
+
 
 import java.awt.EventQueue;
 
@@ -74,13 +74,13 @@ public class Home extends JFrame {
 		Login.setBounds(309, 525, 181, 57);
 		contentPane.add(Login);
 		
-		JLabel lblNewLabel = new JLabel("USER NAME");
+		JLabel lblNewLabel = new JLabel("Admin Username");
 		lblNewLabel.setForeground(new Color(204, 204, 255));
 		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
-		lblNewLabel.setBounds(206, 282, 126, 49);
+		lblNewLabel.setBounds(200, 282, 200, 49);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("PASSWORD");
+		JLabel lblNewLabel_1 = new JLabel("Password");
 		lblNewLabel_1.setForeground(new Color(204, 204, 255));
 		lblNewLabel_1.setFont(new Font("Segoe UI", Font.BOLD, 20));
 		lblNewLabel_1.setBounds(206, 410, 135, 24);
