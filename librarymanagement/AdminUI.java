@@ -3,6 +3,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import javax.swing.border.EmptyBorder;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 public class AdminUI {
@@ -16,6 +18,9 @@ public class AdminUI {
         
         // Create a label for the heading
         JLabel headingLabel = new JLabel("Admin Page");
+        headingLabel.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 30));
+        EmptyBorder padding = new EmptyBorder(15,0,30,0);
+        headingLabel.setBorder(padding);
         
         // Add the heading label to the panel
         headingPanel.add(headingLabel);
@@ -26,6 +31,7 @@ public class AdminUI {
         // Create and add the buttons to the grid panel
         for (int i = 0; i < 8; i++) {
             JButton button = new JButton(adminActions[i]);
+            button.setFont(new Font("Segoe UI", Font.BOLD, 20));
             gridPanel.add(button);
         }
         
@@ -40,7 +46,7 @@ public class AdminUI {
         frame.add(gridPanel, BorderLayout.CENTER);
         
         // Set the size and behavior of the frame
-        frame.setSize(800, 300);
+        frame.setSize(800, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         // Make the frame visible

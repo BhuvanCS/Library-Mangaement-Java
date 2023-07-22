@@ -19,7 +19,7 @@ public class LibraryManagement extends DataHandling {
 	        switch(ch)
 	        {
 	            case '1':
-	                adminLogin();
+	                //adminLogin();
 	                break;
 	            case '2':
 	                newUser();
@@ -34,13 +34,7 @@ public class LibraryManagement extends DataHandling {
 	        }
 	    } while (true);
 	}
-	public void adminLogin() {
-		String un, pw;
-		System.out.println("Enter Admin Credentials!\n");
-		System.out.println("Enter Admin Username");
-		un = sc.next();
-		System.out.println("Enter Admin Password");
-		pw = sc.next();
+	public void adminLogin(String un, String pw) {
 		if(un.equals(adminun) && pw.equals(adminpw))
 		{
 			System.out.println("Admin Login Succesfull!!\nRedirecting to Admin Homepage\n");
@@ -56,8 +50,7 @@ public class LibraryManagement extends DataHandling {
 				homepage();
 				break;
 			default :
-				adminLogin();
-				break;
+				return;
 			}
 		}
 	}

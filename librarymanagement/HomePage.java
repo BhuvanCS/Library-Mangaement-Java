@@ -60,7 +60,7 @@ public class HomePage extends JFrame {
 		JButton adminLoginBtn = new JButton("ADMIN LOGIN");
 		adminLoginBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Home Obj=new Home();
+				AdminLogin Obj=new AdminLogin();
 				Obj.setVisible(true);
 				dispose();
 				

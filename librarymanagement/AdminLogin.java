@@ -14,22 +14,20 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JPasswordField;
 
-public class Home extends JFrame {
+public class AdminLogin extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField unameField;
 	private JPasswordField passwordField;
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Home frame = new Home();
+					AdminLogin frame = new AdminLogin();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,10 +36,8 @@ public class Home extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
-	public Home() {
+	
+	public AdminLogin() {
 		setForeground(new Color(255, 204, 204));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 833, 740);
@@ -53,26 +49,8 @@ public class Home extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton Login = new JButton("LOGIN");
-		Login.setForeground(new Color(0, 0, 0));
-		Login.setBackground(new Color(255, 204, 204));
-		Login.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 20));
-		Login.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			}
-		});
-		Login.setBounds(309, 525, 181, 57);
-		contentPane.add(Login);
+		
+		
 		
 		JLabel lblNewLabel = new JLabel("Admin Username");
 		lblNewLabel.setForeground(new Color(204, 204, 255));
@@ -86,13 +64,15 @@ public class Home extends JFrame {
 		lblNewLabel_1.setBounds(206, 410, 135, 24);
 		contentPane.add(lblNewLabel_1);
 		
-		textField = new JTextField();
-		textField.setBounds(394, 282, 236, 39);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		unameField = new JTextField();
+		unameField.setBounds(394, 282, 236, 39);
+		unameField.setFont(new Font("Segoe UI", Font.BOLD, 20));
+		contentPane.add(unameField);
+		unameField.setColumns(10);
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(394, 395, 236, 39);
+		passwordField.setFont(new Font("Segoe UI", Font.BOLD, 20));
 		contentPane.add(passwordField);
 		
 		lblNewLabel_2 = new JLabel("***** WELCOME TO ABCE LIBRARY *****");
@@ -106,5 +86,27 @@ public class Home extends JFrame {
 		lblNewLabel_3.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 26));
 		lblNewLabel_3.setBounds(288, 160, 242, 33);
 		contentPane.add(lblNewLabel_3);
+		
+		JButton Login = new JButton("LOGIN");
+		Login.setForeground(new Color(0, 0, 0));
+		Login.setBackground(new Color(255, 204, 204));
+		Login.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 20));
+		Login.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Extract username and password here
+				String username = unameField.getText();
+				char[] pw = passwordField.getPassword();
+				String password = new String(pw);
+				
+				//Validate username and password
+				LibraryManagement lib = new LibraryManagement();
+				lib.adminLogin(username, password);
+			
+			
+			
+			}
+		});
+		Login.setBounds(309, 525, 181, 57);
+		contentPane.add(Login);
 	}
 }
