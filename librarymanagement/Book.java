@@ -48,6 +48,7 @@ public class Book extends DataHandling{
 		}
 	}
 	public static ArrayList<Book> searchBook(String key) {
+		key = key.toUpperCase();
 		ArrayList<Book> foundbooks = new ArrayList<>();
 		DataHandling dh = new DataHandling();
 		try {
@@ -58,7 +59,7 @@ public class Book extends DataHandling{
 			{
 				String data = iobj.nextLine();
 				String[] info = dh.splitData(data);
-				if(key.equalsIgnoreCase(info[0]) || key.equalsIgnoreCase(info[1]) || key.equalsIgnoreCase(info[2]))
+				if(info[0].toUpperCase().contains(key) || info[1].toUpperCase().contains(key) || info[2].toUpperCase().contains(key))
 				{
 					Book b = new Book(info[1],info[2],info[0]);
 					foundbooks.add(b);

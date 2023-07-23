@@ -1,9 +1,12 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class SearchBookUI extends JFrame {
     private JTextField searchField;
@@ -20,24 +23,31 @@ public class SearchBookUI extends JFrame {
         dataTable = new JTable();
 
         // Create table model with column names and no initial data
-        String[] columnNames = {"Title", "Author", "Genre"};
+        String[] columnNames = {"Book ID", "Title", "Author"};
         tableModel = new DefaultTableModel(columnNames, 0);
         dataTable.setModel(tableModel);
 
         // Set custom styling for components
-        Font font = new Font("Arial", Font.PLAIN, 16);
-        searchField.setFont(font);
-        searchButton.setFont(font);
+        searchField.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+        searchButton.setBorder(BorderFactory.createEmptyBorder(2, 10, 5, 10));
+        searchButton.setBorder(BorderFactory.createEmptyBorder(2, 10, 5, 10));
+        searchButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
         searchButton.setBackground(new Color(59, 89, 182));
         searchButton.setForeground(Color.WHITE);
         searchButton.setFocusPainted(false);
-        searchButton.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
-        dataTable.getTableHeader().setFont(font.deriveFont(Font.BOLD));
+        searchButton.setBorder(BorderFactory.createEmptyBorder(2, 10, 5, 10));
+        
+        Font headerFont = new Font("Arial", Font.BOLD, 30);
+        JTableHeader tableHeader = dataTable.getTableHeader();
+
+        dataTable.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        tableHeader.setFont(headerFont);
 
         // Center align table header text
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
         headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
         dataTable.getTableHeader().setDefaultRenderer(headerRenderer);
+        
 
         // Set layout and add components to the frame
         setLayout(new BorderLayout());
@@ -52,13 +62,16 @@ public class SearchBookUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String searchQuery = searchField.getText();
-                // You can replace this fake data with your actual data retrieval logic
-                Object[][] data = {
-                        {"Java Programming", "John Doe", "Programming"},
-                        {"The Art of War", "Sun Tzu", "Military"},
-                        {"To Kill a Mockingbird", "Harper Lee", "Fiction"},
-                        {"Harry Potter", "J.K. Rowling", "Fantasy"}
-                };
+                ArrayList<Book> foundbooks = Book.searchBook(searchQuery);
+                Object[][] data = new Object[foundbooks.size()][3];
+                for(int i = 0; i<foundbooks.size(); i++)
+                {
+                	Book b = foundbooks.get(i);
+                	data[i][0] = b.getId();
+                	data[i][1] = b.getBookName();
+                	data[i][2] = b.getAuthor();
+                }
+                
                 updateTableData(data);
             }
         });
