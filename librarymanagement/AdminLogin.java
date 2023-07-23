@@ -100,8 +100,18 @@ public class AdminLogin extends JFrame {
 				
 				//Validate username and password
 				LibraryManagement lib = new LibraryManagement();
-				lib.adminLogin(username, password);
-			
+				boolean validate = lib.adminLogin(username, password);
+				if(validate) {
+					AdminUI Obj=new AdminUI();
+					Obj.setVisible(true);
+					dispose(); 
+				}
+				else {
+					System.out.println("Unsuccesful login!");
+					AdminLogin Obj=new AdminLogin();
+					Obj.setVisible(true);
+					dispose(); 
+				}
 			
 			
 			}

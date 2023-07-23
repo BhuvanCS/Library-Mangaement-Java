@@ -34,24 +34,24 @@ public class LibraryManagement extends DataHandling {
 	        }
 	    } while (true);
 	}
-	public void adminLogin(String un, String pw) {
+	public boolean adminLogin(String un, String pw) {
 		if(un.equals(adminun) && pw.equals(adminpw))
 		{
 			System.out.println("Admin Login Succesfull!!\nRedirecting to Admin Homepage\n");
-			admin();
+			return true;
 		}
 		else {
 			System.out.println("Admin Credentials do not match\n");
 			System.out.println("Enter:\n0. To go back to homepage\nPress any character to try again");
-			char temp = sc.next().charAt(0);
-			switch(temp)
-			{
-			case '0': 
-				homepage();
-				break;
-			default :
-				return;
-			}
+//			char temp = sc.next().charAt(0);
+//			switch(temp)
+//			{
+//			case '0': 
+//				homepage();
+//				break;
+//			
+//			}
+			return false;
 		}
 	}
 	public void admin() {
