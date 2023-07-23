@@ -11,7 +11,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class NewRegister extends JFrame {
+public class NewUser extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -25,7 +25,7 @@ public class NewRegister extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					NewRegister frame = new NewRegister();
+					NewUser frame = new NewUser();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +37,7 @@ public class NewRegister extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public NewRegister() {
+	public NewUser() {
 		setBackground(new Color(255, 255, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 834, 731);

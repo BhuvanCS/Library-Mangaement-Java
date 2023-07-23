@@ -75,7 +75,7 @@ public class HomePage extends JFrame {
 		btnNewUser.setBounds(270, 277, 250, 65);
 		btnNewUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				NewRegister Obj=new NewRegister();
+				NewUser Obj=new NewUser();
 				Obj.setVisible(true);
 				dispose();
 				

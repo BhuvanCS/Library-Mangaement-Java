@@ -97,7 +97,9 @@ public class AdminUI extends JFrame {
     		break;
     	case 5:
     		//call
-    		System.out.println(actionIndex + " pressed");
+    		SearchBookUI Obj=new SearchBookUI();
+			Obj.setVisible(true);
+    		//System.out.println(actionIndex + " pressed");
     		break;
     	case 6:
     		//call

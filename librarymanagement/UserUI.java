@@ -81,7 +81,8 @@ public class UserUI extends JFrame {
     		break;
     	case 1:
     		//call
-    		System.out.println(actionIndex + " pressed");
+    		SearchBookUI Obj=new SearchBookUI();
+			Obj.setVisible(true);
     		break;
     	case 2:
     		//call

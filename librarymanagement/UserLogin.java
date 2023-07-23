@@ -104,7 +104,7 @@ public class UserLogin extends JFrame {
 				if(validatedUser != null) {
 					UserUI Obj=new UserUI(validatedUser);
 					Obj.setVisible(true);
-					dispose(); 
+					dispose();
 				}
 				else {
 					System.out.println("Unsuccesful login!");

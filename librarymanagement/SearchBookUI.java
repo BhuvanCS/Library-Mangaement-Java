@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -26,6 +27,16 @@ public class SearchBookUI extends JFrame {
         String[] columnNames = {"Book ID", "Title", "Author"};
         tableModel = new DefaultTableModel(columnNames, 0);
         dataTable.setModel(tableModel);
+
+        // Set custom border for the table
+        Border tableBorder = BorderFactory.createLineBorder(Color.BLACK);
+        dataTable.setBorder(tableBorder);
+
+        // Set custom intercell spacing for the table
+        int horizontalSpacing = 20;
+        int verticalSpacing = 10;
+        dataTable.setRowHeight(30);
+        dataTable.setIntercellSpacing(new Dimension(horizontalSpacing, verticalSpacing));
 
         // Set custom styling for components
         searchField.setFont(new Font("Segoe UI", Font.PLAIN, 18));
@@ -76,7 +87,7 @@ public class SearchBookUI extends JFrame {
             }
         });
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
