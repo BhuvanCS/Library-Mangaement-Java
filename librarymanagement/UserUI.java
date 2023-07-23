@@ -16,7 +16,8 @@ public class UserUI extends JFrame {
 	static String[] userActions = {"Pay Due Fines", "Search a Book", "View Profile", "Log Out"};
 	static String username = "XYZ";
 	
-	public UserUI() {
+	public UserUI(User user) {
+		this.username = user.getuname();
 		 // Create a panel to hold the heading label
         JPanel headingPanel = new JPanel();
         
@@ -64,7 +65,7 @@ public class UserUI extends JFrame {
     	EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UserUI frame = new UserUI();
+					UserUI frame = new UserUI(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

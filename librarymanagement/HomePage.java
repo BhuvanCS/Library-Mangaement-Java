@@ -88,7 +88,7 @@ public class HomePage extends JFrame {
 		btnMemberLogin.setBounds(270, 357, 250, 65);
 		btnMemberLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MemberLogin Obj=new MemberLogin();
+				UserLogin Obj=new UserLogin();
 				Obj.setVisible(true);
 				dispose();
 				

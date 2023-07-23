@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JPasswordField;
 
-public class AdminLogin extends JFrame {
+public class UserLogin extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField unameField;
@@ -27,7 +27,7 @@ public class AdminLogin extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AdminLogin frame = new AdminLogin();
+					UserLogin frame = new UserLogin();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +37,7 @@ public class AdminLogin extends JFrame {
 	}
 
 	
-	public AdminLogin() {
+	public UserLogin() {
 		setForeground(new Color(255, 204, 204));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 833, 740);
@@ -81,7 +81,7 @@ public class AdminLogin extends JFrame {
 		lblNewLabel_2.setBounds(115, 50, 610, 39);
 		contentPane.add(lblNewLabel_2);
 		
-		lblNewLabel_3 = new JLabel("ADMIN LOGIN");
+		lblNewLabel_3 = new JLabel("USER LOGIN");
 		lblNewLabel_3.setForeground(new Color(255, 255, 51));
 		lblNewLabel_3.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 26));
 		lblNewLabel_3.setBounds(288, 160, 242, 33);
@@ -100,15 +100,15 @@ public class AdminLogin extends JFrame {
 				
 				//Validate username and password
 				LibraryManagement lib = new LibraryManagement();
-				boolean validate = lib.adminLogin(username, password);
-				if(validate) {
-					AdminUI Obj=new AdminUI();
+				User validatedUser = lib.userLogin(username, password);
+				if(validatedUser != null) {
+					UserUI Obj=new UserUI(validatedUser);
 					Obj.setVisible(true);
 					dispose(); 
 				}
 				else {
 					System.out.println("Unsuccesful login!");
-					AdminLogin Obj=new AdminLogin();
+					UserLogin Obj=new UserLogin();
 					Obj.setVisible(true);
 					dispose(); 
 				}

@@ -25,7 +25,7 @@ public class LibraryManagement extends DataHandling {
 	                newUser();
 	                break;
 	            case '3':
-	                userLogin();
+	                //userLogin();
 	                break;
 	            case '0':
 	                close();
@@ -129,15 +129,8 @@ public class LibraryManagement extends DataHandling {
 		System.out.println("Redirecting back to home page");
 		homepage();
 	}
-	public void userLogin() {
-		System.out.println("\n----------User Login Page----------\n");
-		String un, pw;
+	public User userLogin(String un, String pw) {
 		int flag = 0;
-		System.out.println("Enter Username\n");
-		sc.nextLine();
-		un = sc.nextLine();
-		System.out.println("Enter Password");
-		pw = sc.nextLine();
 		//System.out.println(un+"}"+"\n"+pw+"}");
 		try {
 			File obj = new File("UserLogin.txt");
@@ -146,6 +139,7 @@ public class LibraryManagement extends DataHandling {
 			while(iobj.hasNextLine())
 			{
 				String data = iobj.nextLine();
+				//System.out.println(data);
 				for(int i = 0; i<data.length(); i++)
 				{
 					if(data.charAt(i) == '/')
@@ -162,22 +156,20 @@ public class LibraryManagement extends DataHandling {
 			iobj.close();
 			if(flag == 0)
 			{
-				System.out.println("Entered User Credentails does not exist in database!\nPlease Retry or Register as a new User!");
-				System.out.println("Redirecting to Homepage\n");
-				homepage();
+				return null;
 			}
 			else
 			{
 				System.out.println("\n-----User Login Succesfull!!-----\n");
-				System.out.println("Welcome "+un);
-				User u = getUserObject(un, pw);
-				//System.out.println(u.fine);
-				u.user();
+				System.out.println("Welcome "+ un);
+				User user = getUserObject(un, pw);
+				return user;
 			}
 		}
 		catch(Exception e)
 		{
 			System.out.println("Exception...");
+			return null;
 		}
 	}
 	void viewUsers() {
