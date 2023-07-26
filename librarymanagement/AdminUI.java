@@ -76,13 +76,12 @@ public class AdminUI extends JFrame {
     public static void navigate(int actionIndex) {
     	switch(actionIndex) {
     	case 0:
-    		//call
-    		System.out.println(actionIndex + " pressed");
-    		break;
     	case 1:
     		//call
-    		System.out.println(actionIndex + " pressed");
+    		new IssueReturnLoginPage(actionIndex).setVisible(true);
+    		//System.out.println(actionIndex + " pressed");
     		break;
+    		//call
     	case 2:
     		//call
     		System.out.println(actionIndex + " pressed");
@@ -97,8 +96,7 @@ public class AdminUI extends JFrame {
     		break;
     	case 5:
     		//call
-    		SearchBookUI Obj=new SearchBookUI();
-			Obj.setVisible(true);
+			new SearchBookUI().setVisible(true);
     		//System.out.println(actionIndex + " pressed");
     		break;
     	case 6:

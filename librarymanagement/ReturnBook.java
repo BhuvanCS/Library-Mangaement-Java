@@ -1,4 +1,4 @@
-package Library;
+
 
 import java.awt.EventQueue;
 
@@ -14,7 +14,7 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Returnbook extends JFrame {
+public class ReturnBook extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -29,7 +29,7 @@ public class Returnbook extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Returnbook frame = new Returnbook();
+					ReturnBook frame = new ReturnBook();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +41,7 @@ public class Returnbook extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Returnbook() {
+	public ReturnBook() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 638, 470);
 		contentPane = new JPanel();

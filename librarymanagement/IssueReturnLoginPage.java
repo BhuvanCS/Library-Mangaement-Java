@@ -1,4 +1,4 @@
-package Library;
+
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 
-public class IssuePage extends JFrame {
+public class IssueReturnLoginPage extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField username;
@@ -32,7 +32,7 @@ public class IssuePage extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					IssuePage frame = new IssuePage();
+					IssueReturnLoginPage frame = new IssueReturnLoginPage(0);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,8 +44,8 @@ public class IssuePage extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public IssuePage() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public IssueReturnLoginPage(int issueOrReturn) {
+		String text = issueOrReturn == 0 ? "Book Issue - Student Login" : "Book Return - Student Login";
 		setBounds(100, 100, 938, 527);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 0, 0));
@@ -55,8 +55,8 @@ public class IssuePage extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("-----Book Issue Portal-----");
-		lblNewLabel.setBounds(266, 25, 401, 43);
+		JLabel lblNewLabel = new JLabel(text);
+		lblNewLabel.setBounds(266, 25, 500, 43);
 		lblNewLabel.setForeground(new Color(248, 248, 255));
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 36));
 		contentPane.add(lblNewLabel);
@@ -92,8 +92,18 @@ public class IssuePage extends JFrame {
 				char[] pw = passwordField.getPassword();
 				String password = new String(pw);
 				LibraryManagement lib = new LibraryManagement();
-				lib.userLogin(studentname,password);
-				
+				User validatedUser = lib.userLogin(studentname,password);
+				if(validatedUser != null) {
+					IssueBook Obj=new IssueBook(validatedUser);
+					Obj.setVisible(true);
+					dispose();
+				}
+				else {
+					System.out.println("Unsuccesful login!");
+					dispose();
+					IssueReturnLoginPage obj = new IssueReturnLoginPage(0);
+					obj.setVisible(true);
+				}
 				
 			}
 		});

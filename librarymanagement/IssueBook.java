@@ -1,4 +1,4 @@
-package Library;
+
 
 import java.awt.EventQueue;
 
@@ -28,7 +28,7 @@ public class IssueBook extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					IssueBook frame = new IssueBook();
+					IssueBook frame = new IssueBook(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +40,7 @@ public class IssueBook extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public IssueBook() {
+	public IssueBook(User user) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 620, 560);
 		contentPane = new JPanel();
@@ -92,16 +92,16 @@ public class IssueBook extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				SimpleDateFormat dFormat=new SimpleDateFormat("dd-mm-yyyy");
 				String bookId=Bookid.getText();
-				String Studentid=studentid.getText();
-				String IssueDate=dFormat.format(issuedate.getDate());
-				String DueDate=dFormat.format(duedate.getDate());
+				String studentId=studentid.getText();
+				String issueDate=dFormat.format(issuedate.getDate());
+				String dueDate=dFormat.format(duedate.getDate());
 				String returnBook="No";
 				try {
 					
 							
 				}
 				catch(Exception ae){
-					
+					System.out.println(ae);
 				}
 			}
 		});
