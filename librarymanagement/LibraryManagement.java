@@ -82,11 +82,11 @@ public class LibraryManagement extends DataHandling {
 			admin();
 			break;
 		case '4':
-			Book.addBook();//done
+			Book.addBook("","","");//done
 			admin();
 			break;
 		case '5':
-			Book.delBook(); //done
+			Book.delBook(""); //done
 			admin();
 			break;
 		case '6':

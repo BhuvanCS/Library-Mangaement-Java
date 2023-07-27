@@ -74,32 +74,20 @@ public class Book extends DataHandling{
 		
 		
 	}
-	public static void addBook() {
-		Scanner in = new Scanner(System.in);
-		String bname, aname, bid;
-		System.out.println("-----Add a Book-----");
-		System.out.println("\nEnter Book ID");
-		bid = in.nextLine();
-		System.out.println("\nEnter Book Name");
-		bname = in.nextLine();
-		System.out.println("\nEnter Author Name");
-		aname = in.nextLine();
+	public static void addBook(String bid, String bname, String aname) {
 		Book b = new Book(bname, aname, bid);
 		b.updateBookList(1);
-		in.close();
 	}
-	public static void delBook() {
-		String bid;
-		Scanner in = new Scanner(System.in);
-		System.out.println("-----Delete a Book-----");
-		System.out.println("\nEnter Book ID");
-		bid = in.nextLine();
-		ArrayList<Book> foundbooks = searchBook(bid);
+	public static boolean delBook(String bid) {
+		ArrayList<Book> foundbooks = searchBook(bid.toUpperCase());
 		//Take only first object because each book has a unique BID
+		if(foundbooks.size() == 0)
+			return false;
 		foundbooks.get(0).updateBookList(2);
-		in.close();
+		return true;
 	}
 	public void updateBookList(int flag) {
+		//flag details: 1-Add book 2-Delete Book
 		if(flag == 1)
 		{
 			try {
@@ -130,11 +118,9 @@ public class Book extends DataHandling{
 				{
 					String data = iobj.nextLine();
 					String[] info = splitData(data);
-					System.out.println(id);
-					if(id.equals(info[0]))
+					if(this.id.equals(info[0]))
 					{
-						//skip that line
-						System.out.println("Found 'em");
+						//skip that book
 					}
 					else
 					{
@@ -148,13 +134,10 @@ public class Book extends DataHandling{
 					
 				}
 				else {
-					System.out.println("Couldnt Delete");
+					System.out.println("Couldnt Delete! File Error");
 				}
 				File f2 = new File("BookList.txt");
-				if(f1.renameTo(f2)) {
-					
-				}
-				else {
+				if(!(f1.renameTo(f2))) {
 					System.out.println("Couldnt rename");
 				}
 				

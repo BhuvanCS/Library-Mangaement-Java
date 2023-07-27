@@ -79,7 +79,6 @@ public class AdminUI extends JFrame {
     	case 1:
     		//call
     		new IssueReturnLoginPage(actionIndex).setVisible(true);
-    		//System.out.println(actionIndex + " pressed");
     		break;
     		//call
     	case 2:
@@ -88,11 +87,11 @@ public class AdminUI extends JFrame {
     		break;
     	case 3:
     		//call
-    		System.out.println(actionIndex + " pressed");
+    		new AddBookPortal().setVisible(true);
     		break;
     	case 4:
     		//call
-    		System.out.println(actionIndex + " pressed");
+    		new DeleteBookPortal().setVisible(true);
     		break;
     	case 5:
     		//call
