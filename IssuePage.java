@@ -48,8 +48,8 @@ public class IssuePage extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 938, 527);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(0, 0, 0));
-		contentPane.setForeground(new Color(0, 0, 0));
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setForeground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -57,12 +57,12 @@ public class IssuePage extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("-----Book Issue Portal-----");
 		lblNewLabel.setBounds(266, 25, 401, 43);
-		lblNewLabel.setForeground(new Color(248, 248, 255));
+		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 36));
 		contentPane.add(lblNewLabel);
 		
 		JLabel student = new JLabel("Enter Student Username");
-		student.setForeground(new Color(255, 255, 255));
+		student.setForeground(Color.BLACK);
 		student.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 23));
 		student.setBounds(117, 158, 285, 36);
 		contentPane.add(student);
@@ -73,7 +73,7 @@ public class IssuePage extends JFrame {
 		username.setColumns(10);
 		
 		JLabel studentpwd = new JLabel("Enter Student Password");
-		studentpwd.setForeground(Color.WHITE);
+		studentpwd.setForeground(Color.BLACK);
 		studentpwd.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 23));
 		studentpwd.setBounds(117, 251, 285, 36);
 		contentPane.add(studentpwd);
@@ -92,8 +92,11 @@ public class IssuePage extends JFrame {
 				char[] pw = passwordField.getPassword();
 				String password = new String(pw);
 				LibraryManagement lib = new LibraryManagement();
-				lib.userLogin(studentname,password);
-				
+				User validatedUser=lib.userLogin(studentname,password);
+				//USE THIS LINE FOR SUCCESSFUL login
+				//JOptionPane.showMessageDialog(null,"SUCESSFULLY LOGGED IN!!!");
+				//USE THIS LINE FOR UNSUCCESSFUL UPDATION
+				//JOptionPane.showMessageDialog(null,"UNSUCCESSFUL LOGIN!!!");
 				
 			}
 		});
