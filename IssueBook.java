@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import com.toedter.calendar.JCalendar;
@@ -14,12 +16,12 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
+import javax.swing.JRadioButton;
 
 public class IssueBook extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField Bookid;
-	private JTextField studentid;
 
 	/**
 	 * Launch the application.
@@ -42,7 +44,7 @@ public class IssueBook extends JFrame {
 	 */
 	public IssueBook() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 620, 560);
+		setBounds(100, 100, 858, 583);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -51,40 +53,35 @@ public class IssueBook extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Book Id");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel.setBounds(97, 113, 177, 47);
+		lblNewLabel.setBounds(467, 153, 108, 47);
 		contentPane.add(lblNewLabel);
 		
-		JLabel stulabel = new JLabel("Student Id");
+		JLabel stulabel = new JLabel("Name");
 		stulabel.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		stulabel.setBounds(97, 182, 177, 47);
+		stulabel.setBounds(69, 153, 127, 47);
 		contentPane.add(stulabel);
 		
 		JLabel lblIssueDate = new JLabel("Issue Date");
 		lblIssueDate.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblIssueDate.setBounds(97, 246, 177, 47);
+		lblIssueDate.setBounds(467, 236, 96, 47);
 		contentPane.add(lblIssueDate);
 		
 		JLabel lblDueDate = new JLabel("Due Date");
 		lblDueDate.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblDueDate.setBounds(97, 316, 177, 47);
+		lblDueDate.setBounds(467, 307, 96, 47);
 		contentPane.add(lblDueDate);
 		
 		Bookid = new JTextField();
-		Bookid.setBounds(253, 113, 213, 35);
+		Bookid.setBounds(577, 161, 213, 35);
 		contentPane.add(Bookid);
 		Bookid.setColumns(10);
 		
-		studentid = new JTextField();
-		studentid.setColumns(10);
-		studentid.setBounds(253, 182, 213, 35);
-		contentPane.add(studentid);
-		
 		JDateChooser issuedate = new JDateChooser();
-		issuedate.setBounds(253, 248, 213, 34);
+		issuedate.setBounds(577, 236, 213, 34);
 		contentPane.add(issuedate);
 		
 		JDateChooser duedate = new JDateChooser();
-		duedate.setBounds(253, 316, 213, 34);
+		duedate.setBounds(577, 308, 213, 34);
 		contentPane.add(duedate);
 		
 		JButton issuebtn = new JButton("Issue");
@@ -96,17 +93,12 @@ public class IssueBook extends JFrame {
 				String IssueDate=dFormat.format(issuedate.getDate());
 				String DueDate=dFormat.format(duedate.getDate());
 				String returnBook="No";
-				try {
-					
-							
-				}
-				catch(Exception ae){
-					
-				}
+				//USE THIS LINE FOR SUCCESSFUL UPDATION
+				//JOptionPane.showMessageDialog(null,"SUCESSFULLY DATA REGISTERED INTO DATABASE!!!");
 			}
 		});
 		issuebtn.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 14));
-		issuebtn.setBounds(137, 396, 117, 35);
+		issuebtn.setBounds(503, 444, 117, 35);
 		contentPane.add(issuebtn);
 		
 		JButton closebtn = new JButton("Close");
@@ -116,12 +108,52 @@ public class IssueBook extends JFrame {
 			}
 		});
 		closebtn.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
-		closebtn.setBounds(383, 396, 117, 35);
+		closebtn.setBounds(673, 444, 117, 35);
 		contentPane.add(closebtn);
 		
 		JLabel lblNewLabel_1 = new JLabel("Book Issue Portal");
-		lblNewLabel_1.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(193, 23, 255, 41);
+		lblNewLabel_1.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 24));
+		lblNewLabel_1.setBounds(296, 22, 255, 41);
 		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Student Details");
+		lblNewLabel_1_1.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
+		lblNewLabel_1_1.setBounds(69, 87, 255, 41);
+		contentPane.add(lblNewLabel_1_1);
+		
+		JLabel lblPhoneNo = new JLabel("Phone NO");
+		lblPhoneNo.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblPhoneNo.setBounds(69, 236, 96, 47);
+		contentPane.add(lblPhoneNo);
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("ABCD");
+		rdbtnNewRadioButton.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 16));
+		rdbtnNewRadioButton.setBounds(503, 390, 103, 21);
+		contentPane.add(rdbtnNewRadioButton);
+		
+		JRadioButton rdbtnXyz = new JRadioButton("XYZ");
+		rdbtnXyz.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 16));
+		rdbtnXyz.setBounds(673, 392, 103, 21);
+		contentPane.add(rdbtnXyz);
+		
+		JLabel lblNewLabel_2 = new JLabel("ABS1");
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNewLabel_2.setBounds(212, 167, 88, 21);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("234353534");
+		lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblNewLabel_3.setBounds(212, 255, 77, 13);
+		contentPane.add(lblNewLabel_3);
+		
+		JLabel lblLib = new JLabel("LIB1:");
+		lblLib.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblLib.setBounds(69, 307, 96, 47);
+		contentPane.add(lblLib);
+		
+		JLabel lblNewLabel_4 = new JLabel("1221");
+		lblNewLabel_4.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblNewLabel_4.setBounds(212, 326, 77, 13);
+		contentPane.add(lblNewLabel_4);
 	}
 }
