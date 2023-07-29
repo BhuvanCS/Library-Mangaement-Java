@@ -83,7 +83,7 @@ public class AdminUI extends JFrame {
     		//call
     	case 2:
     		//call
-    		System.out.println(actionIndex + " pressed");
+    		new ViewBookUI().setVisible(true);
     		break;
     	case 3:
     		//call

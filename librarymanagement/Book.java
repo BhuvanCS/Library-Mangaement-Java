@@ -27,7 +27,8 @@ public class Book extends DataHandling{
 		return null;
 	}
 	
-	public static void viewBookList() { //Same like searchbooks() but all book objects are added to ArrayList instead of searching for a key and adding
+	@SuppressWarnings("finally")
+	public static ArrayList<Book> viewBookList() { //Same like searchbooks() but all book objects are added to ArrayList instead of searching for a key and adding
 		ArrayList<Book> foundbooks = new ArrayList<>();
 		DataHandling dh = new DataHandling();
 		try {
@@ -42,9 +43,11 @@ public class Book extends DataHandling{
 				foundbooks.add(b);
 			}
 			iobj.close();
-			dh.printFoundBooks(foundbooks);
 		}catch(Exception e) {
 			System.out.println("Exception..."+e);
+		}
+		finally {
+			return foundbooks;
 		}
 	}
 	public static ArrayList<Book> searchBook(String key) {

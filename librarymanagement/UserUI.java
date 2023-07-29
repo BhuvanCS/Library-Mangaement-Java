@@ -81,8 +81,7 @@ public class UserUI extends JFrame {
     		break;
     	case 1:
     		//call
-    		SearchBookUI Obj=new SearchBookUI();
-			Obj.setVisible(true);
+    		new SearchBookUI().setVisible(true);
     		break;
     	case 2:
     		//call
