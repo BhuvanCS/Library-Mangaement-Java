@@ -2,6 +2,7 @@
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -90,8 +91,25 @@ public class UserUI extends JFrame {
     		new ViewProfileUI(user).setVisible(true);
     		break;
     	case 3:
-    		//call
-    		System.out.println(actionIndex + " pressed");
+    		 int confirmation = JOptionPane.showConfirmDialog(
+                     UserUI.this,
+                     "Are you sure you want to Logout?",
+                     "Confirm Logout",
+                     JOptionPane.YES_NO_OPTION,
+                     JOptionPane.QUESTION_MESSAGE
+             );
+
+             if (confirmation == JOptionPane.YES_OPTION) {
+          
+                 JOptionPane.showMessageDialog(
+                         UserUI.this,
+                         "Logged out Succesfully!",
+                         "Logout Succesfull",
+                         JOptionPane.INFORMATION_MESSAGE
+                 );
+                 setVisible(false);
+                 new HomePage().setVisible(true);
+             }
     		break;
     	}
     }

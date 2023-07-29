@@ -1,6 +1,7 @@
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -37,15 +38,6 @@ public class AdminUI extends JFrame {
         	final int actionIndex = i;
             JButton button = new JButton(adminActions[i]);
             button.setFont(new Font("Segoe UI", Font.BOLD, 20));
-            if(i == 7)
-            {
-            	 button.addActionListener(new ActionListener() {
-                 	public void actionPerformed(ActionEvent e) {
-                 		dispose();
-                 		new HomePage().setVisible(true);
-                 	}
-                 });
-            }
             button.addActionListener(new ActionListener() {
             	public void actionPerformed(ActionEvent e) {
             		navigate(actionIndex);
@@ -82,7 +74,7 @@ public class AdminUI extends JFrame {
 		});
         
     }
-    public static void navigate(int actionIndex) {
+    public  void navigate(int actionIndex) {
     	switch(actionIndex) {
     	case 0:
     	case 1:
@@ -110,6 +102,27 @@ public class AdminUI extends JFrame {
     	case 6:
     		//call
     		new ViewUsersUI().setVisible(true);
+    		break;
+    	case 7:
+    		int confirmation = JOptionPane.showConfirmDialog(
+                    AdminUI.this,
+                    "Are you sure you want to Logout?",
+                    "Confirm Logout",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE
+            );
+
+            if (confirmation == JOptionPane.YES_OPTION) {
+         
+                JOptionPane.showMessageDialog(
+                        AdminUI.this,
+                        "Logged out Succesfully!",
+                        "Logout Succesfull",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+                setVisible(false);
+                new HomePage().setVisible(true);
+            }
     		break;
     		
     	}
