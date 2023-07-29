@@ -22,7 +22,7 @@ public class LibraryManagement extends DataHandling {
 	                //adminLogin();
 	                break;
 	            case '2':
-	                newUser();
+	                //newUser();
 	                break;
 	            case '3':
 	                //userLogin();
@@ -105,29 +105,18 @@ public class LibraryManagement extends DataHandling {
 			close(); //done
 		}
 	}
-	public void newUser()  {
+	public String[] newUser(String uname, String pw, String phno)  {
 		Random r = new Random();
-		System.out.println("\n-----Registration Details!-----\n");
-		String name, pw, id1, id2, no;
-		System.out.println("Enter Name\n");
-		sc.nextLine();
-		name = sc.nextLine();
-		do {
-			System.out.println("Enter Valid Contact No");
-			no = sc.next();
-		}while(no.length()!=10);
-		System.out.println("Set a Password");
-		sc.nextLine();
-		pw = sc.nextLine();
+		String id1, id2;
+		String[] cards = new String[2];
+		
 		id1 = "LIB00" + String.valueOf(r.nextInt(90) + 10) + String.valueOf(r.nextInt(90) + 10) + String.valueOf((char)(r.nextInt(26) + 65));
 		id2 = "LIB01" + String.valueOf(r.nextInt(90) + 10) + String.valueOf(r.nextInt(90) + 10) + String.valueOf((char)(r.nextInt(26) + 65));
-		User u = new User(name,pw,no,id1,"0",id2,"0",0);
+		cards[0] = id1;
+		cards[1] = id2;
+		User u = new User(uname,pw,phno,id1,"0",id2,"0",0);
 		u.writeToFile();
-		System.out.println("User Registration Succesfull!");
-		System.out.println(name + " " + pw + " " + no);
-		System.out.println(id1 + "\n" + id2);
-		System.out.println("Redirecting back to home page");
-		homepage();
+		return cards;
 	}
 	public User userLogin(String un, String pw) {
 		int flag = 0;
