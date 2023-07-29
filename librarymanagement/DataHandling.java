@@ -27,21 +27,5 @@ public class DataHandling {
 		foundbooks = Book.searchBook(str);
 		return foundbooks;
 	}
-	void printFoundBooks(ArrayList<Book> foundbooks) {
-		System.out.println("-----Found Books-----");
-		if(foundbooks.size() == 0)
-		{
-			System.out.println("No Books Found which match your search\n\n");
-			return;
-		}
-		else
-		{
-			System.out.printf("%-40s%-30s%-20s\n","Book Name", "Author Name", "Book ID");
-			for(Book b: foundbooks)
-			{
-				System.out.printf("%-40s%-30s%-20s\n",b.getBookName(),b.getAuthor(),b.getId());
-			}
-			System.out.println("-----------------\n\n");
-		}
-	}
+	
 }

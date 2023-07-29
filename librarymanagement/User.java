@@ -25,33 +25,7 @@ public class User extends DataHandling{
 		this.s2 = s2;
 		this.fine = fine;
 	}
-	public void user() {
-		System.out.println("\n\nHi "+uname);
-		System.out.println("What would you like to do today?");
-		System.out.println("Enter:\n1. To Pay Due Fine\n2. To Search a Book\n3. To View Profile\n0. To Log out\nPress any key to exit app\n");
-		char ch = sc.next().charAt(0);
-		LibraryManagement temp = new LibraryManagement();
-		switch(ch) {
-		case '1': 
-            //payFine(); //done
-            user();
-            break;
-        case '2':
-        	ArrayList<Book> foundbooks = getDetailsofBook();
-			printFoundBooks(foundbooks); //done
-            user();
-            break;
-        case '3':
-            viewProfile(); //done
-            user();
-            break;
-        case '0':
-            temp.homepage(); //done
-            break;
-        default:
-            temp.close(); //done
-		}
-	}
+	
 	public boolean issueBook(String bid, String issueDate, String returnDate, int cardnum) {
 		
 		ArrayList<Book> foundbooks = Book.searchBook(bid);
