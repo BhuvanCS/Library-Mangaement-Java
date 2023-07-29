@@ -15,8 +15,10 @@ import java.awt.event.ActionListener;
 public class UserUI extends JFrame {
 	static String[] userActions = {"Pay Due Fines", "Search a Book", "View Profile", "Log Out"};
 	static String username = "XYZ";
+	User user;
 	
 	public UserUI(User user) {
+		this.user = user;
 		this.username = user.getuname();
 		 // Create a panel to hold the heading label
         JPanel headingPanel = new JPanel();
@@ -73,7 +75,7 @@ public class UserUI extends JFrame {
 			}
 		});
     }
-    public static void navigate(int actionIndex) {
+    public  void navigate(int actionIndex) {
     	switch(actionIndex) {
     	case 0:
     		//call
@@ -85,7 +87,7 @@ public class UserUI extends JFrame {
     		break;
     	case 2:
     		//call
-    		System.out.println(actionIndex + " pressed");
+    		new ViewProfileUI(user).setVisible(true);
     		break;
     	case 3:
     		//call

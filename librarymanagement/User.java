@@ -215,43 +215,57 @@ public class User extends DataHandling{
 			System.out.println("Exception..."+e);
 		}
 	}
-	public void viewProfile() {
-		System.out.println("\n-------User Profile-------\n");
-		System.out.println("Name:"+uname+"\n"+"Phone Number:"+phno+"\nLibrary Card 1:"+libid1+"\tStatus:"+(s1.equals("0")?"Active":"In use")+"\nLibrary Card 2:"+libid2+"\tStatus:"+(s2.equals("0")?"Active":"In use"));
-		System.out.println("Due Fine: Rs."+fine);
-		System.out.println();
-		System.out.println("-------User History-------\n");
-		System.out.printf("%-10s%-50s%-20s\n", "Sl. No","Action Performed","Date");
+	@SuppressWarnings("finally")
+	public ArrayList<ArrayList<String>> viewProfile() {
+		ArrayList<ArrayList<String>> allinfo2 = new ArrayList<>();
 		try {
 			File f = new File(uname+".txt");
+			
 			Scanner iobj = new Scanner(f);
-			int i = 1;
+			int i = 0;
 			while(iobj.hasNextLine())
 			{
 				String data = iobj.nextLine();
 				String[] info = splitData(data);
+				ArrayList<String> curinfo = new ArrayList<>();
 				if(info[0].equals("a"))
 				{
-					System.out.printf("%-10s%-50s%-20s\n", i++,"Account Created Succesfully!",info[1]);
+					
+					curinfo.add("Account Created Successfully!");
+					curinfo.add(info[1]);
+					allinfo2.add(curinfo);
 				}
 				else if(info[0].equals("f"))
 				{
-					System.out.printf("%-10s%-50s%-20s\n", i++,"Fine Paid of Rs."+info[1],info[2]);
+					
+					curinfo.add("Fine Paid of Rs."+info[1]);
+					curinfo.add(info[2]);
+					allinfo2.add(curinfo);
 				}
 				else if(info[0].equals("i"))
 				{
-					System.out.printf("%-10s%-50s%-20s\n", i++,"Book Issue - "+info[2] +" to "+info[1],info[3]);
+					
+					curinfo.add("Book Issue - "+info[2] +" to "+info[1]);
+					curinfo.add(info[3]);
+					allinfo2.add(curinfo);
 
 				}
 				else
 				{
-					System.out.printf("%-10s%-50s%-20s\n", i++,"Book Returned - "+info[2] + " from "+info[1],info[3]);
+					
+					curinfo.add("Book Returned - "+info[2] + " from "+info[1]);
+					curinfo.add(info[3]);
+					allinfo2.add(curinfo);
 				}
 				
 			}
+			
 			iobj.close();
 		}catch(Exception e) {
 			System.out.println("Exception...");
+		}
+		finally {
+			return allinfo2;
 		}
 	}
 	public String getuname() {
