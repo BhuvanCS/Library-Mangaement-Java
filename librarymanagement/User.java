@@ -33,7 +33,7 @@ public class User extends DataHandling{
 		LibraryManagement temp = new LibraryManagement();
 		switch(ch) {
 		case '1': 
-            payFine(); //done
+            //payFine(); //done
             user();
             break;
         case '2':
@@ -93,27 +93,12 @@ public class User extends DataHandling{
 		updateUserProfile('r',returnDate,lid, bid);
 		
 	}
-	public void payFine() {
-		System.out.println("-------Pay Due Fines-------\n");
-		if(fine==0)
-		{
-			System.out.println("----You have no more pending fines----");
-			user();
-		}
-		else
-		{
-			System.out.println("Due Fine: Rs."+fine);
-			System.out.println("\nEnter\n 1 to confirm payment\n 0 to Go Back");
-			char ch = sc.next().charAt(0);
-			if(ch == '1')
-			{
-				System.out.println("Payment Succesful! No more pending fines\n");
-				updateUserProfile('f',getFormattedDate(), String.valueOf(fine), "");
-				fine = 0;
-				updateUserDetails();
-			}
-				user();
-		}
+	public void payFine(int paidAmount) {
+		
+		updateUserProfile('f',getFormattedDate(), String.valueOf(paidAmount), "");
+		fine -= paidAmount;
+		updateUserDetails();
+			
 	}
 	public void writeToFile() {
 		try {

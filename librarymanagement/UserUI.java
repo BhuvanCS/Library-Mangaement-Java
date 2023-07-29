@@ -79,7 +79,7 @@ public class UserUI extends JFrame {
     	switch(actionIndex) {
     	case 0:
     		//call
-    		System.out.println(actionIndex + " pressed");
+    		new PayFineUI(user).setVisible(true);
     		break;
     	case 1:
     		//call
