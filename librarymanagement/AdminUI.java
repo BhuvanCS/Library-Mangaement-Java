@@ -100,7 +100,7 @@ public class AdminUI extends JFrame {
     		break;
     	case 6:
     		//call
-    		System.out.println(actionIndex + " pressed");
+    		new ViewUsersUI().setVisible(true);
     		break;
     	case 7:
     		//call

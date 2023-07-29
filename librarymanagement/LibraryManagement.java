@@ -172,24 +172,28 @@ public class LibraryManagement extends DataHandling {
 			return null;
 		}
 	}
-	void viewUsers() {
+	@SuppressWarnings("finally")
+	ArrayList<User> viewUsers() {
+		ArrayList<User> allusers = new ArrayList<>();
 		try {
 			File f = new File("UserDetails.txt");
 			if(f.createNewFile());
 			Scanner iobj = new Scanner(f);
-			System.out.printf("%-10s%-30s%-20s%-20s%-15s%-20s%-15s%-15s\n","Sl no.","Username","Contact No.","LibCard 1","Card1-Status","LibCard 2","Card2-Status","Due Fines");
-			int i = 1;
 			while(iobj.hasNextLine())
 			{
 				String data = iobj.nextLine();
 				String[] info = splitData(data);
 				if(info[0] == null)
 					continue;
-				System.out.printf("%-10s%-30s%-20s%-20s%-15s%-20s%-15s%-15s\n",i++,info[0],info[2],info[3],info[4],info[5],info[6],info[7]);
+				User u = new User(info[0],info[1],info[2],info[3],info[4],info[5],info[6],Integer.valueOf(info[7]));
+				allusers.add(u);
 			}
 			iobj.close();
 		}catch(Exception e) {
 			System.out.println("Exception..."+e);
+		}
+		finally {
+			return allusers;
 		}
 		
 		
