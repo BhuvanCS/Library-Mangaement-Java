@@ -52,50 +52,31 @@ public class User extends DataHandling{
             temp.close(); //done
 		}
 	}
-	public void issueBook() {
-		System.out.println("Student Found!");
-		System.out.println("\n-------User Profile-------\n");
-		System.out.println("Name:"+uname+"\n"+"Phone Number:"+phno+"\nLibrary Card 1:"+libid1+"\tStatus:"+(s1.equals("0")?"Active":"In use")+"\nLibrary Card 2:"+libid2+"\tStatus:"+(s2.equals("0")?"Active":"In use"));
-		System.out.println("Due Fine: Rs."+fine);
-		System.out.println();
-		if(s1.equals("0") || s2.equals("0"))
+	public boolean issueBook(String bid, String issueDate, String returnDate) {
+		
+		ArrayList<Book> foundbooks = Book.searchBook(bid);
+		if(foundbooks.size() == 0 )
 		{
-			System.out.println("Enter Book ID to borrow");
-			String bid = sc.next();
-			ArrayList<Book> foundbooks = Book.searchBook(bid);
-			if(foundbooks.size() == 0 )
-			{
-				System.out.println("Entered Book ID does not Exist! Please retry!!");
-				LibraryManagement l1 = new LibraryManagement();
-				l1.admin();
-			}
-			else
-			{
-				System.out.println("\nBook Issued Successfully!");
-				System.out.println("-----Issue Details-----");
-				printFoundBooks(foundbooks);
-				System.out.println("Issued to:");
-				System.out.println("Student Name: "+uname);
-				if(s1.equals("0"))
-				{
-					System.out.println("Library Card: "+libid1);
-					s1 = bid;
-					updateUserProfile('i',getFormattedDate(),libid1,bid);
-				}
-				else
-				{
-					System.out.println("Library Card: "+libid1);
-					s1 = bid;
-					updateUserProfile('i',getFormattedDate(),libid2,bid);
-				}
-				updateUserDetails();
-				
-			}
+			return false;
 		}
 		else
 		{
-			System.out.println("\n-----Cannot Issue Books! Both Library Cards are in Use!!-----\n\n");
+			if(s1.equals("0"))
+			{
+				System.out.println("Library Card: "+libid1);
+				s1 = bid;
+				updateUserProfile('i',issueDate,libid1,bid);
+			}
+			else
+			{
+				System.out.println("Library Card: "+libid2);
+				s2 = bid;
+				updateUserProfile('i',issueDate,libid2,bid);
+			}
+			updateUserDetails();
+			return true;
 		}
+		
 	}
 	public void returnBook() {
 		System.out.println("Student Found!");
@@ -334,6 +315,21 @@ public class User extends DataHandling{
 	}
 	public int getFine() {
 		return this.fine;
+	}
+	public String getphno() {
+		return this.phno;
+	}
+	public String getlib1() {
+		return this.libid1;
+	}
+	public String getlib2() {
+		return this.libid2;
+	}
+	public String getlibs1() {
+		return this.s1;
+	}
+	public String getlibs2() {
+		return this.s2;
 	}
 	public void setFine(int fine) {
 		this.fine = fine;

@@ -94,7 +94,7 @@ public class IssueReturnLoginPage extends JFrame {
 				LibraryManagement lib = new LibraryManagement();
 				User validatedUser = lib.userLogin(studentname,password);
 				if(validatedUser != null) {
-					IssueBook Obj=new IssueBook(validatedUser);
+					IssueBookPortal Obj=new IssueBookPortal(validatedUser);
 					Obj.setVisible(true);
 					dispose();
 				}

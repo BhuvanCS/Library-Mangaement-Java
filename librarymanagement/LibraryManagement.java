@@ -66,7 +66,7 @@ public class LibraryManagement extends DataHandling {
 			u = acceptNgetObj();
 			if(u == null)
 				admin();
-			u.issueBook(); //done
+			//u.issueBook(); //done
 			admin();
 			break;
 		case '2':
