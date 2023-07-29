@@ -37,6 +37,15 @@ public class AdminUI extends JFrame {
         	final int actionIndex = i;
             JButton button = new JButton(adminActions[i]);
             button.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            if(i == 7)
+            {
+            	 button.addActionListener(new ActionListener() {
+                 	public void actionPerformed(ActionEvent e) {
+                 		dispose();
+                 		new HomePage().setVisible(true);
+                 	}
+                 });
+            }
             button.addActionListener(new ActionListener() {
             	public void actionPerformed(ActionEvent e) {
             		navigate(actionIndex);
@@ -102,10 +111,7 @@ public class AdminUI extends JFrame {
     		//call
     		new ViewUsersUI().setVisible(true);
     		break;
-    	case 7:
-    		//call
-    		System.out.println(actionIndex + " pressed");
-    		break;
+    		
     	}
     }
 }
