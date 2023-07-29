@@ -52,7 +52,7 @@ public class User extends DataHandling{
             temp.close(); //done
 		}
 	}
-	public boolean issueBook(String bid, String issueDate, String returnDate) {
+	public boolean issueBook(String bid, String issueDate, String returnDate, int cardnum) {
 		
 		ArrayList<Book> foundbooks = Book.searchBook(bid);
 		if(foundbooks.size() == 0 )
@@ -61,15 +61,13 @@ public class User extends DataHandling{
 		}
 		else
 		{
-			if(s1.equals("0"))
+			if(cardnum == 1)
 			{
-				System.out.println("Library Card: "+libid1);
 				s1 = bid;
 				updateUserProfile('i',issueDate,libid1,bid);
 			}
 			else
 			{
-				System.out.println("Library Card: "+libid2);
 				s2 = bid;
 				updateUserProfile('i',issueDate,libid2,bid);
 			}
@@ -78,73 +76,22 @@ public class User extends DataHandling{
 		}
 		
 	}
-	public void returnBook() {
-		System.out.println("Student Found!");
-		System.out.println("\n-------User Profile-------\n");
-		System.out.println("Name:"+uname+"\n"+"Phone Number:"+phno+"\nLibrary Card 1:"+libid1+"\tStatus:"+(s1.equals("0")?"Active":"In use")+"\nLibrary Card 2:"+libid2+"\tStatus:"+(s2.equals("0")?"Active":"In use"));
-		System.out.println("Due Fine: Rs."+fine);
-		System.out.println();
-		if(s1.equals("0") && s2.equals("0"))
+	public void returnBook(String bid, String returnDate, int cardnum, int fine) {
+		String lid;
+		if(cardnum == 1)
 		{
-			System.out.println("\n-----No Books Borrowed to return!!-----\n\n");
+			lid = libid1;
+			s1 = "0";
 		}
 		else
-		{
-			String bid, lid = "";
-			if(!s1.equals("0") && !s2.equals("0"))
-			{
-				System.out.println("\nMultiple Books Borrowed!!");
-				System.out.println(s1 + " issued to " + libid1);
-				System.out.println(s2 + " issued to " + libid2);
-				System.out.println("Enter Book ID to return");
-				bid = sc.next();
-				if(!bid.equals(s1) && !bid.equals(s2))
-				{
-					System.out.println("Book ID doesnt match!Please retry!");
-					returnBook();
-					return;
-				}
-				else
-				{
-					if(bid.equals(s1))
-					{
-						s1 = "0";lid = libid1;
-					}
-						
-					else {lid = libid2;  s2 = "0";}
-						
-				}
-			}
-			else
-			{
-				if(s1.equals("0"))
-				{
-					bid=s2;
-					lid = libid2;
-					s2 = "0";
-				}
-					
-				else
-				{
-					bid = s1;
-					lid = libid1;
-					s1 = "0";
-				}
-					
-			}
-			ArrayList<Book> foundbooks = Book.searchBook(bid);
-			System.out.println("\nBook Returned Successfully!");
-			System.out.println("-----Return Details-----");
-			printFoundBooks(foundbooks);
-			System.out.println("Returned From:");
-			System.out.println("Student Name: "+uname);
-			System.out.println("Library Card: "+ lid);
-			System.out.println("\nEnter Fine amount");
-			int tfine = sc.nextInt();
-			fine+=tfine;
-			updateUserDetails();
-			updateUserProfile('r',getFormattedDate(),lid, bid);
+		{	
+			lid = libid2;
+			s2 = "0";
 		}
+		this.fine +=fine;
+		updateUserDetails();
+		updateUserProfile('r',returnDate,lid, bid);
+		
 	}
 	public void payFine() {
 		System.out.println("-------Pay Due Fines-------\n");
