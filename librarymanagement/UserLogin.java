@@ -24,6 +24,7 @@ public class UserLogin extends JFrame {
 
 	
 	public UserLogin() {
+		super("User Login");
 		setForeground(new Color(255, 204, 204));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 833, 740);
@@ -85,7 +86,7 @@ public class UserLogin extends JFrame {
 				String password = new String(pw);
 				
 				//Validate username and password
-				LibraryManagement lib = new LibraryManagement();
+				Main lib = new Main();
 				User validatedUser = lib.userLogin(username, password);
 				if(validatedUser != null) {
 					UserUI Obj=new UserUI(validatedUser);

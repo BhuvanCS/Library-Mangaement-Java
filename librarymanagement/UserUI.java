@@ -19,6 +19,7 @@ public class UserUI extends JFrame {
 	User user;
 	
 	public UserUI(User user) {
+		super("User Homepage: "+user.getuname());
 		this.user = user;
 		this.username = user.getuname();
 		 // Create a panel to hold the heading label

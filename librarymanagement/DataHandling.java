@@ -19,13 +19,4 @@ public class DataHandling {
 			}
 			return info;
 	 }
-	ArrayList<Book> getDetailsofBook() {
-		String str;
-		System.out.println("Enter the Book Name/ Author Name/ Book ID of the books you are looking for");
-		str = sc.nextLine();
-		ArrayList<Book> foundbooks = new ArrayList<Book>();
-		foundbooks = Book.searchBook(str);
-		return foundbooks;
-	}
-	
 }

@@ -17,6 +17,7 @@ public class AdminUI extends JFrame {
 	static String[] adminActions = {"Issue Book", "Return Book", "View BookList", "Add Book", "Delete Book", "Search a Book", "View User Details", "Log Out"};
 	
 	public AdminUI() {
+		super("Admin Homepage");
 
         // Create a panel to hold the heading label
         JPanel headingPanel = new JPanel();

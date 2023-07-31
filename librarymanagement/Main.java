@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
-public class LibraryManagement extends DataHandling {
+public class Main extends DataHandling {
 	final String adminun = "admin";
 	final String adminpw = "lib@ad123";
 	Scanner sc = new Scanner(System.in);

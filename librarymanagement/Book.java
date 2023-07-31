@@ -62,6 +62,8 @@ public class Book extends DataHandling{
 			{
 				String data = iobj.nextLine();
 				String[] info = dh.splitData(data);
+				if(info[0] == null)
+					continue;
 				if(info[0].toUpperCase().contains(key) || info[1].toUpperCase().contains(key) || info[2].toUpperCase().contains(key))
 				{
 					Book b = new Book(info[1],info[2],info[0]);

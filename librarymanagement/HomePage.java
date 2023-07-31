@@ -36,6 +36,7 @@ public class HomePage extends JFrame {
 	 * Create the frame.
 	 */
 	public HomePage() {
+		super("HomePage");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 822, 600);
 		contentPane = new JPanel();

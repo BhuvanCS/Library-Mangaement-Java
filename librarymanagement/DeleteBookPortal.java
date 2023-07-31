@@ -23,6 +23,7 @@ public class DeleteBookPortal extends JFrame {
 	 * Create the frame.
 	 */
 	public DeleteBookPortal() {
+		super("Delete Book");
 		setBounds(100, 100, 568, 278);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

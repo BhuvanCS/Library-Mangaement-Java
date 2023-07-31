@@ -28,6 +28,7 @@ public class NewUser extends JFrame {
 	 * Create the frame.
 	 */
 	public NewUser() {
+		super("Register New User");
 		setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 834, 731);
 		contentPane = new JPanel();
@@ -114,7 +115,7 @@ public class NewUser extends JFrame {
 		            );
 
 		            if (confirmation == JOptionPane.YES_OPTION) {
-		            	String[] cards = new LibraryManagement().newUser(uname, pw, phno);
+		            	String[] cards = new Main().newUser(uname, pw, phno);
 		                JOptionPane.showMessageDialog(
 		                        NewUser.this,
 		                        "Registered Succesfully!\nCard numbers: \nCard1:"+cards[0]+"\nCard2:"+cards[1],

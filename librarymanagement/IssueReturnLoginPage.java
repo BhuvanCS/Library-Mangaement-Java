@@ -78,7 +78,7 @@ public class IssueReturnLoginPage extends JFrame {
 				String studentname = username.getText();
 				char[] pw = passwordField.getPassword();
 				String password = new String(pw);
-				LibraryManagement lib = new LibraryManagement();
+				Main lib = new Main();
 				User validatedUser = lib.userLogin(studentname,password);
 				if(validatedUser != null) {
 					if(issueOrReturn == 0)

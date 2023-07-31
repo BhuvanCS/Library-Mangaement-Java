@@ -26,6 +26,7 @@ public class AddBookPortal extends JFrame {
 	 * Create the frame.
 	 */
 	public AddBookPortal() {
+		super("Add Book");
 		setBounds(100, 100, 591, 406);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

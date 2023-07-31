@@ -24,6 +24,7 @@ public class AdminLogin extends JFrame {
 
 	
 	public AdminLogin() {
+		super("Admin Login");
 		setForeground(new Color(255, 204, 204));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 833, 740);
@@ -85,7 +86,7 @@ public class AdminLogin extends JFrame {
 				String password = new String(pw);
 				
 				//Validate username and password
-				LibraryManagement lib = new LibraryManagement();
+				Main lib = new Main();
 				boolean validate = lib.adminLogin(username, password);
 				if(validate) {
 					AdminUI Obj=new AdminUI();

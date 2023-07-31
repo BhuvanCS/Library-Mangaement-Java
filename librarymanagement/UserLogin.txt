@@ -1,5 +1,5 @@
 Bhuvan C S/bcs123/
-Test A/abcd/
+C Jaganath/cj1234/
 Messi/leo/
 TestUser A B/xyz1234/
 TestUser C D/lmno/
@@ -8,4 +8,4 @@ TestUser X Y Z/pqrs/
 TestUser X Y Z/pqrs/
 TestUser X Y Z/xyz/
 TestUser F G/bcd/
-abcd/1234/
+SampleUser/abc123/

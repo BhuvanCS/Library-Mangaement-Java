@@ -65,7 +65,7 @@ public class ViewUsersUI extends JFrame {
     // Update the table data with new data
     private void updateTableData() {
         // Add new data to the table
-    	LibraryManagement obj = new LibraryManagement();
+    	Main obj = new Main();
         ArrayList<User> allusers = obj.viewUsers();
         Object[][] data = new Object[allusers.size()][7];
         for(int i = 0; i<allusers.size(); i++)
