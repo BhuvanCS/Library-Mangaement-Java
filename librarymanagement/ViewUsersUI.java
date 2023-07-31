@@ -84,13 +84,4 @@ public class ViewUsersUI extends JFrame {
             tableModel.addRow(rowData);
         }
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new ViewUsersUI();
-            }
-        });
-    }
 }

@@ -99,10 +99,4 @@ public class PayFineUI extends JFrame {
         
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            PayFineUI app = new PayFineUI(null);
-            app.setVisible(true);
-        });
-    }
 }

@@ -61,19 +61,7 @@ public class AdminUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
 	}
-    public static void main(String[] args) {
-    	EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AdminUI frame = new AdminUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-        
-    }
+    
     public  void navigate(int actionIndex) {
     	switch(actionIndex) {
     	case 0:

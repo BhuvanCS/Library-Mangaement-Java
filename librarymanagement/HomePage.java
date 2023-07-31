@@ -45,15 +45,15 @@ public class HomePage extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("*** WELCOME TO ABCS LIBRARY ***");
+		JLabel lblNewLabel = new JLabel(" WELCOME TO CITY LIBRARY ");
 		lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 32));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(170, 36, 800, 60);
+		lblNewLabel.setBounds(200, 36, 800, 60);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Choose an Action");
-		lblNewLabel_1.setFont(new Font("Segoe UI", Font.BOLD, 24));
-		lblNewLabel_1.setForeground(new Color(255, 255, 0));
+		lblNewLabel_1.setFont(new Font("Segoe UI", Font.BOLD, 26));
+		lblNewLabel_1.setForeground(new Color(66, 197, 245));
 		lblNewLabel_1.setBounds(300, 106, 554, 33);
 		contentPane.add(lblNewLabel_1);
 		

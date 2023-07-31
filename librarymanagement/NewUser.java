@@ -23,21 +23,6 @@ public class NewUser extends JFrame {
 	private JTextField contactField;
 	private JTextField passwordField;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					NewUser frame = new NewUser();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -52,8 +37,8 @@ public class NewUser extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel headingLabel = new JLabel("*****WELCOME TO ABCS LIBRARY *****");
-		headingLabel.setBounds(88, 48, 648, 43);
+		JLabel headingLabel = new JLabel("WELCOME TO CITY LIBRARY ");
+		headingLabel.setBounds(190, 48, 648, 43);
 		headingLabel.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 28));
 		headingLabel.setForeground(new Color(255, 255, 255));
 		contentPane.add(headingLabel);

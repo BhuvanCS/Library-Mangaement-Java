@@ -21,21 +21,6 @@ public class AddBookPortal extends JFrame {
 	private JTextField bookname;
 	private JTextField authorname;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AddBookPortal frame = new AddBookPortal();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.

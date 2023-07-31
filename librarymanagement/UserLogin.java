@@ -23,20 +23,6 @@ public class UserLogin extends JFrame {
 	private JLabel lblNewLabel_3;
 
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UserLogin frame = new UserLogin();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
 	public UserLogin() {
 		setForeground(new Color(255, 204, 204));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,10 +61,10 @@ public class UserLogin extends JFrame {
 		passwordField.setFont(new Font("Segoe UI", Font.BOLD, 20));
 		contentPane.add(passwordField);
 		
-		lblNewLabel_2 = new JLabel("***** WELCOME TO ABCE LIBRARY *****");
+		lblNewLabel_2 = new JLabel(" WELCOME TO CITY LIBRARY ");
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
 		lblNewLabel_2.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 26));
-		lblNewLabel_2.setBounds(115, 50, 610, 39);
+		lblNewLabel_2.setBounds(190, 50, 610, 39);
 		contentPane.add(lblNewLabel_2);
 		
 		lblNewLabel_3 = new JLabel("USER LOGIN");

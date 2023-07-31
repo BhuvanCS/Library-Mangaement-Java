@@ -135,10 +135,4 @@ public class ReturnBookPortal extends JFrame {
         setLocationRelativeTo(null); // Center the window on the screen
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            IssueBookPortal gui = new IssueBookPortal(null);
-            gui.setVisible(true);
-        });
-    }
 }

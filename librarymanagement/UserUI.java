@@ -64,18 +64,7 @@ public class UserUI extends JFrame {
         setSize(700, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-    public static void main(String[] args) {
-    	EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UserUI frame = new UserUI(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-    }
+    
     public  void navigate(int actionIndex) {
     	switch(actionIndex) {
     	case 0:

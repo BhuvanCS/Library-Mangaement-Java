@@ -25,21 +25,6 @@ public class IssueReturnLoginPage extends JFrame {
 	private JPasswordField passwordField;
 	protected Object correctdetails;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IssueReturnLoginPage frame = new IssueReturnLoginPage(0);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -69,6 +54,7 @@ public class IssueReturnLoginPage extends JFrame {
 		
 		username = new JTextField();
 		username.setBounds(409, 151, 307, 43);
+		username.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 23));
 		contentPane.add(username);
 		username.setColumns(10);
 		
@@ -80,6 +66,7 @@ public class IssueReturnLoginPage extends JFrame {
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(410, 244, 306, 43);
+		passwordField.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 23));
 		contentPane.add(passwordField);
 		
 		JButton btnNewButton = new JButton("LOGIN");

@@ -122,11 +122,4 @@ public class ViewProfileUI extends JFrame {
         setSize(windowSize);
         setLocationRelativeTo(null); // Center the window
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            ViewProfileUI app = new ViewProfileUI(null);
-            app.setVisible(true);
-        });
-    }
 }
