@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JPasswordField;
@@ -89,12 +90,23 @@ public class AdminLogin extends JFrame {
 				Main lib = new Main();
 				boolean validate = lib.adminLogin(username, password);
 				if(validate) {
+					JOptionPane.showMessageDialog(
+	                        AdminLogin.this,
+	                        "Logged In Successfully!",
+	                        "Login Successful",
+	                        JOptionPane.INFORMATION_MESSAGE
+	                );
 					AdminUI Obj=new AdminUI();
 					Obj.setVisible(true);
 					dispose(); 
 				}
 				else {
-					System.out.println("Unsuccesful login!");
+					JOptionPane.showMessageDialog(
+                            AdminLogin.this,
+                            "Error: Entered Credentials are invalid!",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE
+                    );
 					AdminLogin Obj=new AdminLogin();
 					Obj.setVisible(true);
 					dispose(); 
